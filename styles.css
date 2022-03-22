@@ -17,9 +17,9 @@ h1 {
     
 }
 #name {
-    background-color: #EBCEA2;;
+    background-color: #EBCEA2;
     border: none;
-    border-radius: 10px;
+    box-shadow: 3px 3px #82659E;
     padding: 0.5rem;
     margin: 0.5rem;
     color: #82659E;
@@ -29,7 +29,7 @@ h1 {
     outline: none;
 }
 #name:focus {
-    background-color: #EBCEA2;;
+    background-color: #EBCEA2;
     border: none;
     border-style: none;
     color: #82659E;
@@ -50,13 +50,22 @@ h1 {
     background-color: #82659E;;
   
     text-align: center;
-    border-radius: 10px;
+    
+    
     padding: 0 2rem;
+    margin: 1rem;
+}
+.info:before {
+    border: 2px solid black;
+    top: 25px;
+    left: 25px;
+    z-index: -1;
 }
 
-.info-title {
-    color: aquamarine;
+.info h2{
+    color: #EBCEA2;
+    
 }
-.info-text {
+.info p {
     color: #BB8AEB;;
 }
