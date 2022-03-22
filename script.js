@@ -1,29 +1,38 @@
 document.getElementById("name").addEventListener("keyup", getCountryFromName)
-    
+ /// name.trim()
+   
 function getCountryFromName(event) {
     
     if (event.keyCode === 13) {
-    
         let name = event.target.value;
-        let URL = `https://api.nationalize.io/?name=${name}`;
+        let arrOfNames = name.split(",");
         let container = document.querySelector('.container').classList.remove('hidden');
-        let infoTit = document.querySelector('.info-title');
-        infoTit.innerHTML = name.toUpperCase();
+        for (let i of arrOfNames) {
+            let nameItem = i.replace(/\s/g, '');
+            let URL = `https://api.nationalize.io/?name=${nameItem}`;
+        
+            let infoBox = document.createElement('div');
+            document.querySelector('.container').appendChild(infoBox);
+            infoBox.classList.add('info');
+            
+            let infoTit = document.createElement('h2');
+            infoBox.appendChild(infoTit);
+            infoTit.innerHTML = nameItem.toUpperCase();
         
         
-        fetch(URL) 
-        .then (function(response) {
-        if (response.ok) {
-            return response.json();
-        } else {
-            return promise.reject('Failed!');
-            }
-        }) 
-        .then (function(data) {
+            fetch(URL) 
+            .then (function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return promise.reject('Failed!');
+                }
+            }) 
+            .then (function(data) {
             console.log(data);
             
-            
-            let infoPar = document.querySelector('.info-text');
+            let infoPar = document.createElement('p');
+            infoBox.appendChild(infoPar);
             
             
             
@@ -40,5 +49,5 @@ function getCountryFromName(event) {
     } 
 }
 
-
+}
     
