@@ -17,7 +17,7 @@ h1 {
     
 }
 #name {
-    background-color: #EBCEA2;
+    background-color: #ffffff;
     border: none;
     box-shadow: 3px 3px #82659E;
     padding: 0.5rem;
@@ -29,7 +29,7 @@ h1 {
     outline: none;
 }
 #name:focus {
-    background-color: #EBCEA2;
+    background-color: #ffffff;
     border: none;
     border-style: none;
     color: #82659E;
@@ -63,9 +63,12 @@ h1 {
 }
 
 .info h2{
-    color: #EBCEA2;
+    color: #B9EBCA;
     
 }
 .info p {
     color: #BB8AEB;;
+}
+.root span {
+    color: #B9EBCA;
 }

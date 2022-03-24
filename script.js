@@ -34,10 +34,25 @@ function getCountryFromName(event) {
             let infoPar = document.createElement('p');
             infoBox.appendChild(infoPar);
             
+         
+
             
+            let countryLetters = data.country[1].country_id;
+            
+            let countryName = countries[countryLetters];
+            console.log(countryName);
             
 
-            infoPar.innerHTML = `This name is probably ${data.country[0].probability.toFixed(2)} from ${data.country[0].country_id}, ${data.country[1].probability.toFixed(2)} from ${data.country[1].country_id} and ${data.country[2].probability.toFixed(2)} from ${data.country[2].country_id}.`
+            function getName(obj, countryId) {
+                    return (obj[countryId]);
+                }
+
+            function toPercent(num) {
+                return (num * 100) + "%"
+            }
+
+
+            infoPar.innerHTML = `This name is probably ${toPercent(data.country[0].probability.toFixed(2))} from ${getName(countries, data.country[0].country_id)}, ${toPercent(data.country[1].probability.toFixed(2))} from ${getName(countries, data.country[1].country_id)} and ${toPercent(data.country[2].probability.toFixed(2))} from ${getName(countries, data.country[2].country_id)}.`
                 
                 
             
