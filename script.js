@@ -1,14 +1,39 @@
 document.getElementById("name").addEventListener("keyup", getCountryFromName)
- /// name.trim()
+
    
 function getCountryFromName(event) {
     
     if (event.keyCode === 13) {
+
+        let container = document.querySelector('.container');
+   
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+
+
+
+
+
         let name = event.target.value;
         let arrOfNames = name.split(",");
-        let container = document.querySelector('.container').classList.remove('hidden');
+        
+        document.querySelector('.container').classList.remove('hidden');
+     
+        
+        
         for (let i of arrOfNames) {
+            
+            
+            
+            
             let nameItem = i.replace(/\s/g, '');
+            
+            
+            
+            
+            
+            
             let URL = `https://api.nationalize.io/?name=${nameItem}`;
         
             let infoBox = document.createElement('div');
@@ -29,7 +54,7 @@ function getCountryFromName(event) {
                 }
             }) 
             .then (function(data) {
-            console.log(data);
+            
             
             let infoPar = document.createElement('p');
             infoBox.appendChild(infoPar);
@@ -40,7 +65,7 @@ function getCountryFromName(event) {
             let countryLetters = data.country[1].country_id;
             
             let countryName = countries[countryLetters];
-            console.log(countryName);
+            
             
 
             function getName(obj, countryId) {
